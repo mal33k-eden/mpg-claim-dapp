@@ -6,8 +6,8 @@ import { MoralisProvider } from 'react-moralis';
 import('./polyfill');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const appId = "7SUMTektfXKmCw8SCpEMuXAeBLrzOTMDej0UVZvw"
-const serverUrl="https://mnw8qvpjsrms.usemoralis.com:2053/server"
+const appId = "sI2umy8FCyjTli71pCoNRgwyJJY9aYdtwDG6jtLo"
+const serverUrl="https://uxgh7zhaktv4.usemoralis.com:2053/server"
 
 
 root.render(
