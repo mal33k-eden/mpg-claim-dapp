@@ -55,12 +55,12 @@ function ClaimButton({period,index,type,receiverForm}) {
         } 
         if (r) {
             return (
-                <div className="btn btn-sm btn-success" onClick={()=>claim(type, index, 'kkk')} >Claim {comparedDate} - {todaysDate }</div> 
+                <div className="btn btn-sm btn-success" onClick={()=>claim(type, index)} >Claim {comparedDate} - {todaysDate }</div> 
             )
         }
         if (!r) {
             return (
-                <div className="btn btn-sm btn-disabled">Pending m</div> 
+                <div className="btn btn-sm btn-disabled">Pending {comparedDate} - {todaysDate }</div> 
             )
         }
         
