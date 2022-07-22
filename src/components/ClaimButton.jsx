@@ -1,7 +1,5 @@
 import React,{useContext,useEffect,useState} from 'react' 
 import InvestmentContext from '../context/investments';  
-import moment from 'moment';
-moment().format();
 
 function ClaimButton({period,index,type,receiverForm}) {  
     const {getInvestmentStatus,claimInvestments} = useContext(InvestmentContext)
@@ -37,15 +35,13 @@ function ClaimButton({period,index,type,receiverForm}) {
         claimInvestments(type, period, receiver).then(function (data) {
             console.log(data)
         }).catch(console.error)
-    }
-    let todaysDate = new Date(curYear+"-"+curMonth+"-"+curDay).getTime()
-    console.log(todaysDate)
-    let m = month.indexOf(period)
-    let comparedDate = new Date('2022-'+m+'-20').getTime() //24th of this period month 
+    } 
+        let todaysDate = new Date(curYear ,curMonth,curDay).getTime() 
+        let m = month.indexOf(period)
+        let comparedDate = new Date("2022",m,"24").getTime() //24th of this period month 
     
     if (!status) {
-        //get date 
-        console.log(comparedDate +"-"+ todaysDate)
+        //get date  
         // var r = moment(new Date('2022-'+m+'-24')).isSameOrBefore(new Date(y)); 
          
         if (comparedDate <= todaysDate ) {
@@ -55,12 +51,12 @@ function ClaimButton({period,index,type,receiverForm}) {
         } 
         if (r) {
             return (
-                <div className="btn btn-sm btn-success" onClick={()=>claim(type, index)} >Claim {comparedDate} - {todaysDate }</div> 
+                <div className="btn btn-sm btn-success" onClick={()=>claim(type, index)} >Claim {comparedDate}   {todaysDate }</div> 
             )
         }
         if (!r) {
             return (
-                <div className="btn btn-sm btn-disabled">Pending {comparedDate} - {todaysDate }</div> 
+                <div className="btn btn-sm btn-disabled">Pending </div> 
             )
         }
         
