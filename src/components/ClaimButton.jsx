@@ -60,7 +60,7 @@ function ClaimButton({period,index,type,receiverForm}) {
         }
         if (!r) {
             return (
-                <div className="btn btn-sm btn-disabled">Pending</div> 
+                <div className="btn btn-sm btn-disabled">Pending m</div> 
             )
         }
         
