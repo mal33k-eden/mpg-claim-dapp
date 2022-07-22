@@ -4,6 +4,7 @@ import InvestmentContext from '../context/investments';
 function ClaimButton({period,index,type,receiverForm}) {  
     const {getInvestmentStatus,claimInvestments} = useContext(InvestmentContext)
     const [status, setStatus]= useState() 
+    const [claiming, setClaiming]= useState(false) 
     const [curMonth, setCurMonth]= useState() 
     const [curDay, setCurDay]= useState() 
     const [curYear, setCurYear]= useState() 
@@ -30,10 +31,10 @@ function ClaimButton({period,index,type,receiverForm}) {
     },[status])
     
     const claim = async (type, period)=>  {
+        setClaiming(true)
         const form = receiverForm.current 
         const receiver = form['address'].value 
         claimInvestments(type, period, receiver).then(function (data) {
-            console.log(data)
         }).catch(console.error)
     } 
         let todaysDate = new Date(curYear ,curMonth,curDay).getTime() 
@@ -51,7 +52,7 @@ function ClaimButton({period,index,type,receiverForm}) {
         } 
         if (r) {
             return (
-                <div className="btn btn-sm btn-success" onClick={()=>claim(type, index)} >Claim</div> 
+                <div className={`btn btn-sm ${claiming ? "btn-disabled" : "btn-success"}`} onClick={()=>claim(type, index)} >{(claiming)? 'Claiming': 'Claim'}</div> 
             )
         }
         if (!r) {
