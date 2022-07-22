@@ -51,7 +51,7 @@ function ClaimButton({period,index,type,receiverForm}) {
         } 
         if (r) {
             return (
-                <div className="btn btn-sm btn-success" onClick={()=>claim(type, index)} >Claim {comparedDate}   {todaysDate }</div> 
+                <div className="btn btn-sm btn-success" onClick={()=>claim(type, index)} >Claim</div> 
             )
         }
         if (!r) {

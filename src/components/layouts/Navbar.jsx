@@ -22,7 +22,7 @@ function Navbar({title}) {
       <div className="navbar-end">
        {
         (!isAuthenticated)?
-        (<button className="btn" onClick={connect}>Connect Wallet</button>):
+        (<button className="btn btn-success" onClick={connect}>Connect Wallet</button>):
         (<div className="dropdown dropdown-end float-right">
               <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
@@ -31,7 +31,7 @@ function Navbar({title}) {
               </label>
               <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
-                  <button onClick={disconnect} className="justify-between">
+                  <button onClick={disconnect} className="justify-between btn btn-error">
                    Disconnect Wallet
                   </button>
                 </li> 
