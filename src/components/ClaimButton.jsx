@@ -41,9 +41,9 @@ function ClaimButton({period,index,type,receiverForm}) {
 
     if (!status) {
         //get date 
-        let y = new Date(curYear+"-"+curMonth+"-"+curDay).getDate()
+        let y = new Date(curYear+"-"+curMonth+"-"+curDay).getTime()
         let m = month.indexOf(period)
-        let curD = new Date('2022-'+m+'-24').getDate()
+        let curD = new Date('2022-'+m+'-24').getTime()
         // var r = moment(new Date('2022-'+m+'-24')).isSameOrBefore(new Date(y)); 
         var r = false
         if (curD >= y) {
