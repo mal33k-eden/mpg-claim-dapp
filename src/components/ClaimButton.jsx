@@ -38,22 +38,24 @@ function ClaimButton({period,index,type,receiverForm}) {
             console.log(data)
         }).catch(console.error)
     }
-
+    let todaysDate = new Date(curYear+"-"+curMonth+"-"+curDay).getTime()
+    console.log(todaysDate)
+    let m = month.indexOf(period)
+    let comparedDate = new Date('2022-'+m+'-24').getTime() //24th of this period month 
+    
     if (!status) {
         //get date 
-        let todaysDate = new Date(curYear+"-"+curMonth+"-"+curDay).getTime()
-        let m = month.indexOf(period)
-        let comparedDate = new Date('2022-'+m+'-24').getTime()
+        console.log(comparedDate +"-"+ todaysDate)
         // var r = moment(new Date('2022-'+m+'-24')).isSameOrBefore(new Date(y)); 
-        var r = false
-        if (comparedDate <= todaysDate) {
-            r = true
+         
+        if (comparedDate <= todaysDate ) {
+            var r = true
         } else{
-            r = false
+            var r = false
         } 
         if (r) {
             return (
-                <div className="btn btn-sm btn-success" onClick={()=>claim(type, index, 'kkk')} >Claim</div> 
+                <div className="btn btn-sm btn-success" onClick={()=>claim(type, index, 'kkk')} >Claim {comparedDate} - {todaysDate }</div> 
             )
         }
         if (!r) {
@@ -65,7 +67,7 @@ function ClaimButton({period,index,type,receiverForm}) {
     }
     if (status) {
 
-         
+        
         return (
             <div className="btn btn-sm btn-primary">Claimed</div> 
         )
