@@ -41,9 +41,16 @@ function ClaimButton({period,index,type,receiverForm}) {
 
     if (!status) {
         //get date 
-        let y = curYear+"-"+curMonth+"-"+curDay
-        let m = month.indexOf(period) 
-        var r = moment(new Date('2022-'+m+'-24')).isSameOrBefore(new Date(y));  
+        let y = new Date(curYear+"-"+curMonth+"-"+curDay).getDate()
+        let m = month.indexOf(period)
+        let curD = new Date('2022-'+m+'-24').getDate()
+        // var r = moment(new Date('2022-'+m+'-24')).isSameOrBefore(new Date(y)); 
+        var r = false
+        if (curD >= y) {
+            r = true
+        } else{
+            r = false
+        }
         alert(r)
         if (r) {
             return (
