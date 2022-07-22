@@ -41,7 +41,7 @@ function ClaimButton({period,index,type,receiverForm}) {
     let todaysDate = new Date(curYear+"-"+curMonth+"-"+curDay).getTime()
     console.log(todaysDate)
     let m = month.indexOf(period)
-    let comparedDate = new Date('2022-'+m+'-24').getTime() //24th of this period month 
+    let comparedDate = new Date('2022-'+m+'-20').getTime() //24th of this period month 
     
     if (!status) {
         //get date 
