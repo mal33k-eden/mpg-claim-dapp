@@ -44,6 +44,7 @@ function ClaimButton({period,index,type,receiverForm}) {
         let y = curYear+"-"+curMonth+"-"+curDay
         let m = month.indexOf(period) 
         var r = moment(new Date('2022-'+m+'-24')).isSameOrBefore(new Date(y));  
+        alert(r)
         if (r) {
             return (
                 <div className="btn btn-sm btn-success" onClick={()=>claim(type, index, 'kkk')} >Claim</div> 
