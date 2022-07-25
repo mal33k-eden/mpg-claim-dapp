@@ -27,6 +27,7 @@ function InvestmentView() {
             <div className='my-5'>
                  <div className="p-5">
                     <Notice type={'info'} message={'Investment Data Found'}/>
+                    <Notice type={'warning'} message={'Collection wallet must be different from IDO/SEED investment wallet'}/>
                     <form ref={receiverRef}>
                         <input  name={'address'} type="text" placeholder="Paste the address you want to receive with" className="input input-bordered input-accent w-full max-w" />
                     </form>
