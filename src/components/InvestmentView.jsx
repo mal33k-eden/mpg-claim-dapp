@@ -68,14 +68,14 @@ function InvestmentView() {
                                 <div className="card-body">
                                     <h2 className="card-title">Your IDO Investments</h2> 
                                     {
-                                        seedPeriods.map((element)=>{
+                                        seedPeriods.map((element,index)=>{
                                             return (
                                             <div key={element} className="flex justify-between align-middle justify-items-center">
                                                 <div>
                                                     <h5>{element}</h5>
-                                                    <p>MPG {ido/10}</p>
+                                                    <p>MPG {seed/10}</p>
                                                 </div>
-                                                <div className="badge badge-primary">Claimed</div> 
+                                                <ClaimButton type={'SEED'} index={index} period={element} receiverForm={receiverRef}/>
                                             </div>   )
                                         })
                                     }  
