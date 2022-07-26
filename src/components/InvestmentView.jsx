@@ -66,7 +66,7 @@ function InvestmentView() {
                     <> 
                             <div className="card w-96 bg-base-100 shadow-xl">
                                 <div className="card-body">
-                                    <h2 className="card-title">Your IDO Investments</h2> 
+                                    <h2 className="card-title">Your SEED Investments</h2> 
                                     {
                                         seedPeriods.map((element,index)=>{
                                             return (
