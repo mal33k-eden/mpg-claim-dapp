@@ -19,6 +19,7 @@ export const  InvestorProvider = ({children})=>{
         }
     },[ user, isAuthenticated])
     const connect = async ()=>{  
+        console.log('cl')
         try{
             await authenticate()
             if(isAuthenticated){

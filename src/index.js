@@ -6,16 +6,15 @@ import { MoralisProvider } from 'react-moralis';
 import('./polyfill');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const appId = "bpvMvN0ghqMNTjuhVeiw1rVKVUh7If5VNd0kxwUQ"
-const serverUrl="https://oazapcnygpfk.usemoralis.com:2053/server"
+const appId = "mx084cQh2zoH1A60yjbSA8ZGczXm7RIUb8xk2AAw"
+const serverUrl="https://531zsrpxyfoc.usemoralis.com:2053/server"
 
 
 root.render(
   <React.StrictMode>
     <MoralisProvider appId={appId} serverUrl={serverUrl}  >
       <App />
-    </MoralisProvider>
-    
+    </MoralisProvider>  
   </React.StrictMode>
 );
  
