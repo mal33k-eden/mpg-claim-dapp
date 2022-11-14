@@ -51,13 +51,14 @@ const ClaimTotalButton = ({ calcAmount }) => {
     }
   };
 
-  if (calcAmount && isRecorded == false) {
+  if (calcAmount > 0 && isRecorded == false) {
     return (
       <button className="btn btn-sm btn-success" onClick={() => makeRecord()} disabled={recording}>
         I Confirm
       </button>
     );
-  } else if (canClaim == true) {
+  }
+  if (canClaim == true) {
     return (
       <div className="flex">
         {canClaim} , {isRecorded}
@@ -74,16 +75,15 @@ const ClaimTotalButton = ({ calcAmount }) => {
         </button>
       </div>
     );
-  } else {
-    // return <Notice type={"success"} message={"Congratulations! You have claimed your MPG Tokens!"} />;
-    return (
-      <div>
-        {canClaim ? "TRUE" : "FALSE"}
-        {isRecorded ? "TRUE" : "FALSE"}
-        {recording ? "TRUE" : "FALSE"}
-      </div>
-    );
   }
+  // return <Notice type={"success"} message={"Congratulations! You have claimed your MPG Tokens!"} />;
+  return (
+    <div>
+      {canClaim ? "TRUE" : "FALSE"}
+      {isRecorded ? "TRUE" : "FALSE"}
+      {recording ? "TRUE" : "FALSE"}
+    </div>
+  );
 };
 
 export default ClaimTotalButton;
