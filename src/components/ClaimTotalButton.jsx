@@ -59,7 +59,7 @@ const ClaimTotalButton = ({ calcAmount }) => {
     );
   } else if (canClaim == true) {
     return (
-      <div>
+      <div className="flex">
         <form className="mb-5" ref={receiverRef}>
           <input
             name={"address"}
@@ -73,9 +73,9 @@ const ClaimTotalButton = ({ calcAmount }) => {
         </button>
       </div>
     );
+  } else {
+    return <Notice type={"success"} message={"Congratulations! You have claimed your MPG Tokens!"} />;
   }
-
-  return <Notice type={"info"} message={"Congratulations! You have claimed your MPG Tokens!"} />;
 };
 
 export default ClaimTotalButton;
