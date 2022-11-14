@@ -54,7 +54,7 @@ const ClaimTotalButton = ({ calcAmount }) => {
   if (calcAmount && isRecorded == false) {
     return (
       <button className="btn btn-sm btn-success" onClick={() => makeRecord()} disabled={recording}>
-        Yes, I Acknowledge The Above Amount As My ToTal REMAINING MPG
+        I Confirm
       </button>
     );
   } else if (canClaim == true) {
