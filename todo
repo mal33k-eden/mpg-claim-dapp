@@ -1,0 +1,7 @@
+- check if he is an investor
+- isRecorded []
+    - get amount withdrawn from claim db [IDO, SEED]
+    
+- get current balance
+- calc claimable
+- mark as claimed
