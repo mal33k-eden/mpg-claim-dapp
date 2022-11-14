@@ -60,6 +60,7 @@ const ClaimTotalButton = ({ calcAmount }) => {
   } else if (canClaim == true) {
     return (
       <div className="flex">
+        {canClaim} , {isRecorded}
         <form className="mb-5" ref={receiverRef}>
           <input
             name={"address"}
@@ -74,7 +75,13 @@ const ClaimTotalButton = ({ calcAmount }) => {
       </div>
     );
   } else {
-    return <Notice type={"success"} message={"Congratulations! You have claimed your MPG Tokens!"} />;
+    // return <Notice type={"success"} message={"Congratulations! You have claimed your MPG Tokens!"} />;
+    return (
+      <div>
+        {canClaim ? "TRUE" : "FALSE"}
+        {isRecorded ? "TRUE" : "FALSE"}
+      </div>
+    );
   }
 };
 
