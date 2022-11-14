@@ -35,14 +35,12 @@ const Claim = () => {
           <div className="stat">
             <div className="stat-title">Total Claimed</div>
             <div className="stat-value">{claimedInvestment} MPG</div>
-            <div className="stat-actions">{/* <button className="btn btn-sm btn-success">Add funds</button> */}</div>
           </div>
         </div>
         <div className="stats  shadow bg-primary text-primary-content">
           <div className="stat">
             <div className="stat-title">Current Balance</div>
             <div className="stat-value">{mpgBalance} MPG</div>
-            <div className="stat-actions">{/* <button className="btn btn-sm btn-success">Add funds</button> */}</div>
           </div>
         </div>
 
