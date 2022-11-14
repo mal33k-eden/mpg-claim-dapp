@@ -12,7 +12,7 @@ const ClaimTotalButton = ({ calcAmount }) => {
 
   useEffect(() => {
     fetchStatus();
-  }, [isRecorded, canClaim]);
+  }, [isRecorded, canClaim, recording]);
 
   const fetchStatus = async () => {
     getRecorded().then((data) => {
@@ -80,6 +80,7 @@ const ClaimTotalButton = ({ calcAmount }) => {
       <div>
         {canClaim ? "TRUE" : "FALSE"}
         {isRecorded ? "TRUE" : "FALSE"}
+        {recording ? "TRUE" : "FALSE"}
       </div>
     );
   }
