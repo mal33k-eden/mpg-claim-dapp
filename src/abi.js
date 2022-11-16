@@ -252,6 +252,7 @@ const UTILS = {
   ],
   claim_contract: "0xbFecac4635315EE23C4E179501E0b5c588F28ad1",
   new_claim_contract: "0x1233e95Fe185A3d8C67585f1983008bd2FEfA1b6",
+  mpg_address: "0x53f0e242ea207b6e9b63e0a53e788267aa99ff9b",
 };
 
 export default UTILS;

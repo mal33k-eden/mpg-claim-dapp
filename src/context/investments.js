@@ -102,7 +102,7 @@ export const InvestmentsProvider = ({ children }) => {
 
     balances.map((element, index) => {
       console.log(element);
-      if (element["symbol"] == "MPG") {
+      if (element["token_address"] == UTILS.mpg_address) {
         mpgBal = Moralis.Units.FromWei(element["balance"]);
       }
     });
