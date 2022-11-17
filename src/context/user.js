@@ -64,6 +64,7 @@ export const InvestorProvider = ({ children }) => {
       params: { _investor: add },
     };
     var record = await runContractFunction({ params: options });
+    console.log(record);
     return record;
   };
   const recordInvestor = async () => {

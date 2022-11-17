@@ -18,7 +18,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Claim />} />
                 <Route path="/load" element={<Load />} />
-                <Route path="/claim" element={<Claim />} />
+                <Route path="/old-claim" element={<Home />} />
                 <Route path="*" element={<PageNotFound />} />
               </Routes>
             </main>

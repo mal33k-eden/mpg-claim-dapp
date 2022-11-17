@@ -74,6 +74,7 @@ export const InvestmentsProvider = ({ children }) => {
     if (ido > 0) {
       idoPeriods.map(async (element, index) => {
         let checks = await getInvestmentStatus("IDO", index);
+        console.log(checks);
         if (checks) {
           claimedIdo += ido / idoPeriods.length;
         }
@@ -101,7 +102,6 @@ export const InvestmentsProvider = ({ children }) => {
     const balances = await Web3Api.account.getTokenBalances(options);
 
     balances.map((element, index) => {
-      console.log(element);
       if (element["token_address"] == UTILS.mpg_address) {
         mpgBal = Moralis.Units.FromWei(element["balance"]);
       }
