@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { useMoralis, useWeb3Contract } from "react-moralis";
 import client from "../sanity";
 import UTILS from "../abi";
+import { toast } from "react-toastify";
 
 const InvestorContext = createContext();
 
@@ -10,12 +11,14 @@ export const InvestorProvider = ({ children }) => {
   const [investments, setInvestments] = useState(null);
   const [hasRecord, setHasRecord] = useState(false);
   const { runContractFunction, error } = useWeb3Contract();
+  const [totalClaimed, setTotalClaimed] = useState(null);
 
   useEffect(() => {
     if (isAuthenticated) {
       getInvestments(user.get("ethAddress"));
+      getSanityClaimRecords(user.get("ethAddress"));
     }
-  }, [user, isAuthenticated]);
+  }, [user, isAuthenticated, totalClaimed]);
   const connect = async () => {
     try {
       await authenticate();
@@ -64,7 +67,6 @@ export const InvestorProvider = ({ children }) => {
       params: { _investor: add },
     };
     var record = await runContractFunction({ params: options });
-    console.log(record);
     return record;
   };
   const recordInvestor = async () => {
@@ -100,9 +102,54 @@ export const InvestorProvider = ({ children }) => {
     }
   };
 
+  const getSanityRecords = async (address) => {
+    let blkChainRec = await isInvestorRecorded();
+    const query = `*[_type == "investors" && lower(address) == '${address}'] {claimed,address,amount,category}`;
+    const params = { address: address };
+    try {
+      let results = await client.fetch(query, params);
+
+      return [results, blkChainRec];
+    } catch (error) {
+      console.log(error);
+      toast.error("Connectivity Error. If error persist speak to admin for assistance.");
+    }
+  };
+  const getSanityClaimRecords = async (address) => {
+    if (isAuthenticated) {
+      var _claimed = null;
+      const query = `*[_type == "claimFile" && lower(address) == '${address}'] {claimed,address}`;
+      const params = { address: address };
+      try {
+        let results = await client.fetch(query, params);
+        console.log(results[0]["claimed"]);
+        if (results.length > 0) {
+          _claimed = results[0]["claimed"];
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error("Connectivity Error. If error persist speak to admin for assistance.");
+      }
+      console.log(_claimed);
+      setTotalClaimed(_claimed);
+    }
+  };
+
   return (
     <InvestorContext.Provider
-      value={{ isInvestorRecorded, user, isAuthenticated, investments, hasRecord, fetch, disconnect, connect, recordInvestor }}
+      value={{
+        totalClaimed,
+        isInvestorRecorded,
+        getSanityRecords,
+        user,
+        isAuthenticated,
+        investments,
+        hasRecord,
+        fetch,
+        disconnect,
+        connect,
+        recordInvestor,
+      }}
     >
       {children}
     </InvestorContext.Provider>

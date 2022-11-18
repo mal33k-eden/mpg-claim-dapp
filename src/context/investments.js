@@ -74,7 +74,6 @@ export const InvestmentsProvider = ({ children }) => {
     if (ido > 0) {
       idoPeriods.map(async (element, index) => {
         let checks = await getInvestmentStatus("IDO", index);
-        console.log(checks);
         if (checks) {
           claimedIdo += ido / idoPeriods.length;
         }
@@ -154,10 +153,10 @@ export const InvestmentsProvider = ({ children }) => {
       if (r !== undefined) {
         r.wait(2);
         toast.success("Execution completed!");
+        return true;
       } else {
         toast.error("execution reverted: Connected address is not marked as an investor.");
       }
-      console.log(error);
     } catch (err) {
       toast.error("execution reverted: Connected address is not marked as an investor.");
     }

@@ -7,7 +7,7 @@ const ClaimTotalButton = ({ calcAmount }) => {
   const { getCanClaim, getRecorded, recordTotalInvestment, withdrawTotalInvestment } = useContext(InvestmentContext);
   const [isRecorded, setIsRecorded] = useState(false);
   const [canClaim, setCanClaim] = useState(false);
-  const [recording, setRecording] = useState(false);
+  const [recording, setRecording] = useState(true);
   const receiverRef = useRef(null);
 
   useEffect(() => {
@@ -21,18 +21,6 @@ const ClaimTotalButton = ({ calcAmount }) => {
     getCanClaim().then((data) => {
       setCanClaim(data);
     });
-  };
-
-  const makeRecord = async () => {
-    setRecording(true);
-    try {
-      var r = await recordTotalInvestment(calcAmount);
-      console.log(r);
-    } catch (error) {
-      console.log(error);
-    }
-    fetchStatus();
-    setRecording(false);
   };
 
   const claimTokens = async () => {
@@ -51,16 +39,9 @@ const ClaimTotalButton = ({ calcAmount }) => {
     }
   };
 
-  if (calcAmount > 0 && isRecorded == false) {
+  if (isRecorded && canClaim) {
     return (
-      <button className="btn btn-sm btn-success" onClick={() => makeRecord()} disabled={recording}>
-        I Confirm
-      </button>
-    );
-  }
-  if (canClaim == true) {
-    return (
-      <div className="flex">
+      <div className="flex flex-col ">
         <form className="mb-5" ref={receiverRef}>
           <input
             name={"address"}
