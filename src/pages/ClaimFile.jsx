@@ -27,7 +27,7 @@ const ClaimFile = ({ investorAddress, investorBalance }) => {
       };
       toast.success("Database updated");
       await client.create(doc);
-      await getSanityClaimRecords();
+      await getSanityClaimRecords(investorAddress);
     }
     updateLoading(false);
   };
