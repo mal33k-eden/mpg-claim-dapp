@@ -31,7 +31,7 @@ const Claim = () => {
         <div className="stats flex flex-wrap shadow bg-primary text-primary-content">
           <div className="stat">
             <div className="stat-title">Total Claimed</div>
-            <div className="stat-value">{totalClaimed != "null" ? totalClaimed : 0} MPG</div>
+            <div className="stat-value">{totalClaimed == "null" ? "0" : totalClaimed} MPG</div>
           </div>
           <div className="stat ">
             <div className="stat-title">Current Balance</div>
