@@ -130,7 +130,6 @@ export const InvestorProvider = ({ children }) => {
         console.log(error);
         toast.error("Connectivity Error. If error persist speak to admin for assistance.");
       }
-      console.log(_claimed);
       setTotalClaimed(_claimed);
     }
   };

@@ -10,6 +10,7 @@ const ClaimFile = ({ investorAddress, investorBalance }) => {
   const { getTotalClaimedTokens, recordTotalInvestment, getSanityClaimRecords } = useContext(InvestmentContext);
   useEffect(() => {
     getTotalClaimedTokens().then((data) => {
+      console.log(data);
       updateClaimedList(data);
     });
   }, [claimedList]);

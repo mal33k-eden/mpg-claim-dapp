@@ -18,6 +18,7 @@ export const InvestmentsProvider = ({ children }) => {
       functionName: "getInvestmentsProfile",
     };
     var record = await runContractFunction({ params: options });
+
     if (record !== undefined) {
       var ido = record["ido"];
       var seed = record["seed"];
@@ -72,22 +73,21 @@ export const InvestmentsProvider = ({ children }) => {
     let ido = parseInt(investments[0]);
     let seed = parseInt(investments[1]);
     if (ido > 0) {
-      idoPeriods.map(async (element, index) => {
+      for (let index = 0; index < idoPeriods.length; index++) {
         let checks = await getInvestmentStatus("IDO", index);
         if (checks) {
-          claimedIdo += ido / idoPeriods.length;
+          claimedIdo += ido * 0.1;
         }
-      });
+      }
     }
     if (seed > 0) {
-      seedPeriods.map(async (element, index) => {
+      for (let index = 0; index < seedPeriods.length; index++) {
         let checks = await getInvestmentStatus("SEED", index);
         if (checks) {
-          claimedSeed += seed / seedPeriods.length;
+          claimedSeed += seed / 0.1;
         }
-      });
+      }
     }
-
     return [claimedIdo, claimedSeed];
   };
   const fetchTokenBalances = async () => {
