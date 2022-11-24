@@ -68,7 +68,7 @@ const ClaimFile = ({ investorAddress, investorBalance }) => {
             Confirm
           </button>
         ) : (
-          "Loading...."
+          "Loading.... "
         )}
       </div>
     </div>

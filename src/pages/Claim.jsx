@@ -44,7 +44,7 @@ const Claim = () => {
             {totalClaimed == null ? (
               <ClaimFile investorAddress={user.get("ethAddress")} investorBalance={mpgBalance} />
             ) : (
-              <div className="stats bg-primary text-primary-content">
+              <div className="stats flex flex-wrap bg-primary text-primary-content">
                 <div className="stat">
                   <div className="stat-title">Calculated Balance</div>
                   <div className="stat-value">{parseFloat(mpgBalance - totalClaimed).toFixed(2)} MPG</div>
