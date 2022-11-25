@@ -151,12 +151,32 @@ const UTILS = {
     },
   ],
   new_claim_abi: [
-    { inputs: [{ internalType: "address", name: "_mpg", type: "address" }], stateMutability: "nonpayable", type: "constructor" },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "_mpg",
+          type: "address",
+        },
+      ],
+      stateMutability: "nonpayable",
+      type: "constructor",
+    },
     {
       anonymous: false,
       inputs: [
-        { indexed: true, internalType: "address", name: "previousOwner", type: "address" },
-        { indexed: true, internalType: "address", name: "newOwner", type: "address" },
+        {
+          indexed: true,
+          internalType: "address",
+          name: "previousOwner",
+          type: "address",
+        },
+        {
+          indexed: true,
+          internalType: "address",
+          name: "newOwner",
+          type: "address",
+        },
       ],
       name: "OwnershipTransferred",
       type: "event",
@@ -164,8 +184,18 @@ const UTILS = {
     {
       anonymous: false,
       inputs: [
-        { indexed: false, internalType: "address", name: "investor", type: "address" },
-        { indexed: false, internalType: "uint256", name: "claimAmount", type: "uint256" },
+        {
+          indexed: false,
+          internalType: "address",
+          name: "investor",
+          type: "address",
+        },
+        {
+          indexed: false,
+          internalType: "uint256",
+          name: "claimAmount",
+          type: "uint256",
+        },
       ],
       name: "addressRecorded",
       type: "event",
@@ -173,33 +203,84 @@ const UTILS = {
     {
       anonymous: false,
       inputs: [
-        { indexed: false, internalType: "address", name: "investor", type: "address" },
-        { indexed: false, internalType: "address", name: "receiver", type: "address" },
-        { indexed: false, internalType: "uint256", name: "amount", type: "uint256" },
+        {
+          indexed: false,
+          internalType: "address",
+          name: "investor",
+          type: "address",
+        },
+        {
+          indexed: false,
+          internalType: "address",
+          name: "receiver",
+          type: "address",
+        },
+        {
+          indexed: false,
+          internalType: "uint256",
+          name: "amount",
+          type: "uint256",
+        },
       ],
       name: "withrawEvent",
       type: "event",
     },
     {
-      inputs: [{ internalType: "address", name: "_investor", type: "address" }],
+      inputs: [
+        {
+          internalType: "address",
+          name: "_investor",
+          type: "address",
+        },
+      ],
       name: "getCanClaim",
-      outputs: [{ internalType: "bool", name: "", type: "bool" }],
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
       stateMutability: "view",
       type: "function",
       constant: true,
     },
     {
-      inputs: [{ internalType: "address", name: "_investor", type: "address" }],
+      inputs: [
+        {
+          internalType: "address",
+          name: "_investor",
+          type: "address",
+        },
+      ],
       name: "getCliamable",
-      outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      outputs: [
+        {
+          internalType: "uint256",
+          name: "",
+          type: "uint256",
+        },
+      ],
       stateMutability: "view",
       type: "function",
       constant: true,
     },
     {
-      inputs: [{ internalType: "address", name: "_investor", type: "address" }],
+      inputs: [
+        {
+          internalType: "address",
+          name: "_investor",
+          type: "address",
+        },
+      ],
       name: "isRecorded",
-      outputs: [{ internalType: "bool", name: "", type: "bool" }],
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
       stateMutability: "view",
       type: "function",
       constant: true,
@@ -207,7 +288,13 @@ const UTILS = {
     {
       inputs: [],
       name: "mpg",
-      outputs: [{ internalType: "address", name: "", type: "address" }],
+      outputs: [
+        {
+          internalType: "address",
+          name: "",
+          type: "address",
+        },
+      ],
       stateMutability: "view",
       type: "function",
       constant: true,
@@ -215,43 +302,116 @@ const UTILS = {
     {
       inputs: [],
       name: "owner",
-      outputs: [{ internalType: "address", name: "", type: "address" }],
+      outputs: [
+        {
+          internalType: "address",
+          name: "",
+          type: "address",
+        },
+      ],
       stateMutability: "view",
       type: "function",
       constant: true,
     },
-    { inputs: [], name: "renounceOwnership", outputs: [], stateMutability: "nonpayable", type: "function" },
     {
-      inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
+      inputs: [],
+      name: "renounceOwnership",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "_investor",
+          type: "address",
+        },
+      ],
+      name: "resetIsRecorded",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "newOwner",
+          type: "address",
+        },
+      ],
       name: "transferOwnership",
       outputs: [],
       stateMutability: "nonpayable",
       type: "function",
     },
     {
-      inputs: [{ internalType: "uint256", name: "claimAmount", type: "uint256" }],
+      inputs: [
+        {
+          internalType: "uint256",
+          name: "claimAmount",
+          type: "uint256",
+        },
+      ],
       name: "recordAddress",
-      outputs: [{ internalType: "bool", name: "", type: "bool" }],
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
       stateMutability: "nonpayable",
       type: "function",
     },
     {
-      inputs: [{ internalType: "address", name: "receiver", type: "address" }],
+      inputs: [
+        {
+          internalType: "address",
+          name: "receiver",
+          type: "address",
+        },
+      ],
       name: "withdraw",
-      outputs: [{ internalType: "bool", name: "", type: "bool" }],
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
       stateMutability: "nonpayable",
       type: "function",
     },
     {
-      inputs: [{ internalType: "address", name: "receiver", type: "address" }],
+      inputs: [
+        {
+          internalType: "address",
+          name: "receiver",
+          type: "address",
+        },
+      ],
       name: "safePull",
-      outputs: [{ internalType: "bool", name: "", type: "bool" }],
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
       stateMutability: "nonpayable",
       type: "function",
     },
   ],
   claim_contract: "0xbFecac4635315EE23C4E179501E0b5c588F28ad1",
-  new_claim_contract: "0x3576c5B36f47dD8fCeb4B9fc9B6899Bbd274E358",
+  new_claim_contract: "0x093B5ee60d487cfD904B52f2024Ba3ab61300606",
   mpg_address: "0x53f0e242ea207b6e9b63e0a53e788267aa99ff9b",
 };
 
