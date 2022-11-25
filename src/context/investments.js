@@ -84,7 +84,7 @@ export const InvestmentsProvider = ({ children }) => {
       for (let index = 0; index < seedPeriods.length; index++) {
         let checks = await getInvestmentStatus("SEED", index);
         if (checks) {
-          claimedSeed += seed / 0.1;
+          claimedSeed += seed * 0.1;
         }
       }
     }
