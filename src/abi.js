@@ -411,7 +411,7 @@ const UTILS = {
     },
   ],
   claim_contract: "0xbFecac4635315EE23C4E179501E0b5c588F28ad1",
-  new_claim_contract: "0x093B5ee60d487cfD904B52f2024Ba3ab61300606",
+  new_claim_contract: "0x00eCA8135b7450b7691A7BE76AB174a688c3a527",
   mpg_address: "0x53f0e242ea207b6e9b63e0a53e788267aa99ff9b",
 };
 
